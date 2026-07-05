@@ -1,0 +1,348 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Euroff 7 Communication — Imprimerie & signalétique, Hautmont</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{
+  --ink:#111111; --paper:#F4F1EA; --paper-d:#e9e4d7;
+  --c:#1B4DFF; --m:#FF2D55; --y:#FFC400; --teal:#00A88F; --grey:#8A8A8A;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Inter Tight',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;overflow-x:hidden}
+.grot{font-family:'Space Grotesk',sans-serif}
+.mono{font-family:'IBM Plex Mono',monospace}
+img{max-width:100%;display:block}
+a{color:inherit}
+
+/* halftone paper texture (statique) */
+body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
+  background-image:radial-gradient(var(--ink) 0.6px,transparent 0.7px);background-size:7px 7px;opacity:.045}
+
+/* CMYK bar */
+.cmyk{display:flex;height:8px}
+.cmyk i{flex:1}.cmyk .ic{background:var(--c)}.cmyk .im{background:var(--m)}.cmyk .iy{background:var(--y)}.cmyk .ik{background:var(--ink)}
+
+/* crop marks */
+.crop{position:absolute;width:22px;height:22px;pointer-events:none;opacity:.5}
+.crop::before,.crop::after{content:"";position:absolute;background:var(--ink)}
+.crop::before{width:1px;height:22px}.crop::after{height:1px;width:22px}
+.crop.tl{top:12px;left:12px}.crop.tr{top:12px;right:12px}.crop.tr::before{right:0}.crop.tr::after{right:0}
+.crop.bl{bottom:12px;left:12px}.crop.bl::before{bottom:0}.crop.bl::after{bottom:0}
+.crop.br{bottom:12px;right:12px}.crop.br::before{right:0;bottom:0}.crop.br::after{right:0;bottom:0}
+
+/* topbar */
+.top{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1.5px solid var(--ink)}
+.top .in{max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
+.brand{display:flex;align-items:center;gap:12px}
+.brand .mk{width:42px;height:42px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-weight:700;font-size:19px;font-family:'Space Grotesk';letter-spacing:-1px}
+.brand b{font-family:'Space Grotesk';font-weight:700;font-size:18px;letter-spacing:-.5px;line-height:1}
+.brand span{display:block;font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--grey);margin-top:2px}
+.top nav{display:flex;gap:24px;align-items:center;font-size:14px}
+.top nav a{text-decoration:none;color:var(--ink);font-weight:500}
+.top nav a:hover{color:var(--m)}
+.top .cta{background:var(--m);color:#fff;padding:10px 18px;font-weight:600;text-decoration:none;font-size:14px}
+.top nav .lnk{display:none}
+@media(min-width:900px){.top nav .lnk{display:inline}}
+
+/* hero */
+.hero{position:relative;padding:78px 24px 0;overflow:hidden}
+.hero .in{max-width:1180px;margin:0 auto;position:relative}
+.hero .kick{font-family:'IBM Plex Mono';font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-bottom:22px}
+.hero .kick b{color:var(--m)}
+.hero h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(38px,7vw,86px);line-height:.98;letter-spacing:-2px;max-width:15ch}
+.hero h1 .hl{position:relative;white-space:nowrap}
+.hero h1 .hl::after{content:"";position:absolute;left:-2px;right:-2px;bottom:.08em;height:.16em;background:var(--y);z-index:-1}
+.hero .lead{font-size:clamp(17px,2vw,21px);color:#333;max-width:52ch;margin:26px 0 0}
+.hero .btns{margin:34px 0 40px;display:flex;gap:14px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;font-size:15px;padding:15px 26px;transition:transform .12s}
+.btn:active{transform:translateY(1px)}
+.btn-k{background:var(--ink);color:var(--paper)}
+.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
+.hero .strip{display:flex;flex-wrap:wrap;gap:8px 26px;font-family:'IBM Plex Mono';font-size:12.5px;color:var(--grey);padding:16px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
+.hero .strip b{color:var(--ink);font-weight:500}
+
+/* sections */
+section{padding:74px 24px}
+.wrap{max-width:1180px;margin:0 auto}
+.eyebrow{font-family:'IBM Plex Mono';font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--m);margin-bottom:10px;display:flex;align-items:center;gap:10px}
+.eyebrow::before{content:"";width:26px;height:2px;background:var(--m)}
+.h2{font-family:'Space Grotesk';font-weight:700;font-size:clamp(30px,4.6vw,50px);line-height:1;letter-spacing:-1.2px}
+.sub{font-size:17px;color:#444;max-width:56ch;margin-top:14px}
+
+/* mur des réalisations */
+#mur{background:var(--ink);color:var(--paper)}
+#mur .eyebrow{color:var(--y)}#mur .eyebrow::before{background:var(--y)}
+#mur .sub{color:#c9c4b8}
+.grid-mur{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;margin-top:38px;background:var(--paper);border:2px solid var(--paper)}
+.ep{position:relative;aspect-ratio:4/3;padding:20px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;color:#fff}
+.ep.c{background:var(--c)}.ep.m{background:var(--m)}.ep.y{background:var(--y);color:var(--ink)}.ep.t{background:var(--teal)}.ep.k{background:#1b1b1b}.ep.g{background:#3a3a3a}
+.ep .num{font-family:'IBM Plex Mono';font-size:11.5px;opacity:.8;letter-spacing:1px}
+.ep .lbl{font-family:'Space Grotesk';font-weight:700;font-size:clamp(22px,2.4vw,30px);line-height:.98;letter-spacing:-.5px}
+.ep .cap{font-family:'IBM Plex Mono';font-size:11px;line-height:1.5;opacity:.9}
+.ep::after{content:"◹";position:absolute;top:12px;right:14px;font-size:14px;opacity:.6}
+.mur-note{font-family:'IBM Plex Mono';font-size:12px;color:#b9b4a8;margin-top:16px;text-align:center}
+
+/* savoir-faire */
+.grid-sf{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;margin-top:38px;border-top:1.5px solid var(--ink);border-left:1.5px solid var(--ink)}
+.sf{padding:24px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
+.sf .n{font-family:'IBM Plex Mono';font-size:12px;color:var(--m)}
+.sf h3{font-family:'Space Grotesk';font-weight:600;font-size:19px;margin:8px 0 6px;letter-spacing:-.3px}
+.sf p{font-size:14px;color:#555}
+
+/* du fichier à la pose */
+#process{background:var(--paper-d)}
+.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:38px}
+.st{position:relative;padding-top:22px;border-top:2px solid var(--ink)}
+.st .no{font-family:'Space Grotesk';font-weight:700;font-size:40px;letter-spacing:-2px;line-height:1}
+.st .no b{color:var(--m)}
+.st h4{font-family:'Space Grotesk';font-weight:600;font-size:18px;margin:8px 0 6px}
+.st p{font-size:14px;color:#555}
+
+/* ancrage local */
+#local{position:relative}
+.local-wrap{display:grid;grid-template-columns:1fr;gap:30px;align-items:center}
+@media(min-width:820px){.local-wrap{grid-template-columns:1.1fr .9fr}}
+.local .big{font-family:'Space Grotesk';font-weight:700;font-size:clamp(60px,12vw,150px);line-height:.85;letter-spacing:-4px}
+.local .big small{display:block;font-size:clamp(15px,2vw,20px);letter-spacing:3px;font-family:'IBM Plex Mono';color:var(--m);font-weight:400;margin-bottom:6px}
+.local p{font-size:17px;color:#444;max-width:44ch}
+.pantone{background:#fff;border:1px solid var(--ink);padding:0;width:190px;box-shadow:6px 6px 0 var(--ink)}
+.pantone .chip{height:150px;background:var(--m)}
+.pantone .meta{padding:12px 14px;font-family:'IBM Plex Mono';font-size:12px}
+.pantone .meta b{display:block;font-size:14px;margin-bottom:2px}
+
+/* avis */
+#avis{background:var(--ink);color:var(--paper)}
+#avis .eyebrow{color:var(--y)}#avis .eyebrow::before{background:var(--y)}
+.avis-note{font-family:'IBM Plex Mono';font-size:12.5px;color:#b9b4a8;margin-top:6px}
+.avis{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px}
+.av{border:1px solid #3a3a3a;padding:22px}
+.av .st{color:var(--y);letter-spacing:3px;font-size:16px;border:none;padding:0}
+.av .q{font-size:16px;line-height:1.55;margin:12px 0}
+.av .m{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--grey);text-transform:uppercase;letter-spacing:1px}
+.note-avis{font-family:'IBM Plex Mono';font-size:11.5px;color:#8a8578;margin-top:20px;text-align:center}
+
+/* devis */
+#devis{background:var(--paper-d)}
+.devis{max-width:760px;margin:36px auto 0;background:var(--paper);border:2px solid var(--ink);box-shadow:10px 10px 0 var(--ink)}
+.devis .head{background:var(--ink);color:var(--paper);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
+.devis .head b{font-family:'Space Grotesk';font-weight:600;font-size:18px}
+.devis .head span{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--y)}
+.devis .body{padding:26px 24px}
+.devis .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
+.devis .full{grid-column:1/-1}
+.devis label{display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--grey);margin-bottom:6px}
+.devis input,.devis select,.devis textarea{width:100%;padding:12px 13px;border:1.5px solid var(--ink);background:#fff;font-family:inherit;font-size:15px;color:var(--ink)}
+.devis textarea{resize:vertical;min-height:74px}
+.devis input:focus,.devis select:focus,.devis textarea:focus{outline:none;border-color:var(--m)}
+.file{border:1.5px dashed var(--ink)!important;background:#fff;padding:16px!important;text-align:center;font-family:'IBM Plex Mono';font-size:12.5px;color:var(--grey);cursor:pointer}
+.devis .go{width:100%;margin-top:4px;background:var(--m);color:#fff;border:none;padding:16px;font-family:'Space Grotesk';font-weight:600;font-size:17px;cursor:pointer}
+.devis .go:hover{background:#e02348}
+.demo-note{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--grey);text-align:center;margin-top:12px}
+
+/* contact */
+.contact{display:grid;grid-template-columns:1fr;gap:26px;margin-top:36px}
+@media(min-width:760px){.contact{grid-template-columns:repeat(3,1fr)}}
+.ct{border-top:2px solid var(--ink);padding-top:16px}
+.ct .n{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--m)}
+.ct h4{font-family:'Space Grotesk';font-weight:600;font-size:17px;margin:6px 0}
+.ct p{font-size:15px;color:#444}
+.ct a{color:var(--ink);font-weight:500;text-decoration:none;border-bottom:2px solid var(--y)}
+
+/* footer */
+.foot{background:var(--ink);color:#b9b4a8;padding:0}
+.foot .in{max-width:1180px;margin:0 auto;padding:34px 24px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono';font-size:12px}
+.foot b{color:var(--paper)}
+
+@media(max-width:640px){
+  section{padding:54px 20px}
+  .hero{padding:54px 20px 0}
+  .devis .grid{grid-template-columns:1fr}
+  .devis{box-shadow:6px 6px 0 var(--ink)}
+}
+</style>
+</head>
+<body>
+
+<div class="cmyk"><i class="ic"></i><i class="im"></i><i class="iy"></i><i class="ik"></i></div>
+
+<header class="top">
+  <div class="in">
+    <div class="brand">
+      <div class="mk">E7</div>
+      <div><b>EUROFF 7</b><span>Communication · Hautmont</span></div>
+    </div>
+    <nav>
+      <a class="lnk" href="#mur">Réalisations</a>
+      <a class="lnk" href="#savoirfaire">Savoir-faire</a>
+      <a class="lnk" href="#local">L'atelier</a>
+      <a class="cta" href="#devis">Demander un devis</a>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero">
+  <span class="crop tl"></span><span class="crop tr"></span>
+  <div class="in">
+    <div class="kick">Imprimerie · Signalétique · Covering — <b>à Hautmont depuis 2005</b></div>
+    <h1 class="grot">On imprime la communication des autres. <span class="hl">Voici enfin la nôtre.</span></h1>
+    <p class="lead">Enseignes, habillage de véhicules, banderoles, vitrines, panneaux — conçus, imprimés et posés dans l'atelier, pour toute la Sambre-Avesnois.</p>
+    <div class="btns">
+      <a class="btn btn-k" href="#devis">Demander un devis →</a>
+      <a class="btn btn-o" href="#mur">Voir nos réalisations</a>
+    </div>
+    <div class="strip">
+      <span>OFFSET · <b>NUMÉRIQUE</b></span>
+      <span>GRANDS <b>FORMATS</b></span>
+      <span>POSE <b>TOUS SUPPORTS</b></span>
+      <span>ATELIER <b>59330 HAUTMONT</b></span>
+    </div>
+  </div>
+</section>
+
+<!-- MUR DES RÉALISATIONS -->
+<section id="mur">
+  <div class="wrap">
+    <div class="eyebrow">Le mur · nos épreuves</div>
+    <h2 class="h2">Ce qu'on fabrique</h2>
+    <p class="sub">Notre meilleur argument, ce sont nos réalisations. Voici comment elles s'afficheront — chaque projet, une épreuve qu'on peut agrandir.</p>
+    <div class="grid-mur">
+      <div class="ep c"><div class="num">EP·01</div><div><div class="lbl">Enseigne</div><div class="cap">enseigne lumineuse · Dibond<br>façade commerce · Hautmont</div></div></div>
+      <div class="ep m"><div class="num">EP·02</div><div><div class="lbl">Covering<br>véhicule</div><div class="cap">total covering · vinyle coulé<br>utilitaire · Sambre-Avesnois</div></div></div>
+      <div class="ep y"><div class="num">EP·03</div><div><div class="lbl">Banderole</div><div class="cap">bâche PVC · œillets<br>événement · grand format</div></div></div>
+      <div class="ep t"><div class="num">EP·04</div><div><div class="lbl">Vitrine</div><div class="cap">habillage adhésif · dépoli<br>devanture · pose sur site</div></div></div>
+      <div class="ep k"><div class="num">EP·05</div><div><div class="lbl">Signalétique</div><div class="cap">totem &amp; plaques · PVC<br>intérieur / extérieur</div></div></div>
+      <div class="ep g"><div class="num">EP·06</div><div><div class="lbl">Panneau</div><div class="cap">panneau chantier · Akilux<br>impression numérique</div></div></div>
+    </div>
+    <p class="mur-note">◹ Aperçu de mise en page — vos vraies photos de réalisations prendront exactement cette place.</p>
+  </div>
+</section>
+
+<!-- SAVOIR-FAIRE -->
+<section id="savoirfaire">
+  <div class="wrap">
+    <div class="eyebrow">Nos savoir-faire</div>
+    <h2 class="h2">De l'idée au support posé</h2>
+    <div class="grid-sf">
+      <div class="sf"><div class="n">01</div><h3>Impression offset &amp; numérique</h3><p>Petits et grands volumes — cartes, flyers, affiches, dépliants.</p></div>
+      <div class="sf"><div class="n">02</div><h3>Enseignes</h3><p>Enseignes de façade, lettres, caissons — conception et pose.</p></div>
+      <div class="sf"><div class="n">03</div><h3>Signalétique</h3><p>Totems, plaques, fléchage, signalétique intérieure et extérieure.</p></div>
+      <div class="sf"><div class="n">04</div><h3>Covering véhicules</h3><p>Marquage partiel ou total covering sur voiture et utilitaire.</p></div>
+      <div class="sf"><div class="n">05</div><h3>Habillage de vitrines</h3><p>Adhésifs, dépoli, vitrophanie — la devanture qui parle.</p></div>
+      <div class="sf"><div class="n">06</div><h3>Banderoles &amp; kakémonos</h3><p>Bâches, roll-up, kakémonos — pour vos événements.</p></div>
+      <div class="sf"><div class="n">07</div><h3>Panneaux</h3><p>Panneaux chantier, immobilier, PLV — tous supports rigides.</p></div>
+      <div class="sf"><div class="n">08</div><h3>Pose sur site</h3><p>On ne fait pas que produire : on installe, proprement.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- DU FICHIER À LA POSE -->
+<section id="process">
+  <div class="wrap">
+    <div class="eyebrow">Comment on travaille</div>
+    <h2 class="h2">Du fichier à la pose</h2>
+    <div class="steps">
+      <div class="st"><div class="no"><b>0</b>1</div><h4>Le calage</h4><p>On part de votre fichier (ou on le crée), on cale couleurs et formats.</p></div>
+      <div class="st"><div class="no"><b>0</b>2</div><h4>L'épreuve</h4><p>On vous soumet un bon à tirer : ce que vous validez, c'est ce qui sort.</p></div>
+      <div class="st"><div class="no"><b>0</b>3</div><h4>Le tirage</h4><p>Impression offset ou numérique, à l'atelier, sur le bon support.</p></div>
+      <div class="st"><div class="no"><b>0</b>4</div><h4>La pose</h4><p>Enseigne, covering, vitrine : on installe sur place, dans la Sambre-Avesnois.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- ANCRAGE LOCAL -->
+<section id="local">
+  <span class="crop bl"></span>
+  <div class="wrap local-wrap">
+    <div class="local">
+      <div class="eyebrow">L'atelier</div>
+      <div class="big"><small>DEPUIS</small>2005</div>
+      <p style="margin-top:20px">Un atelier à Hautmont, rue Sainte-Anne. Vingt ans à habiller les commerces, les entreprises et les véhicules de la Sambre-Avesnois — de l'enseigne au covering.</p>
+    </div>
+    <div style="display:flex;justify-content:center">
+      <div class="pantone">
+        <div class="chip"></div>
+        <div class="meta"><b>EUROFF 7</b>Hautmont · 59330<br>C · M · Y · K</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- AVIS -->
+<section id="avis">
+  <div class="wrap">
+    <div class="eyebrow">Ce qu'on dit de l'atelier</div>
+    <h2 class="h2">5,0/5</h2>
+    <p class="avis-note">Sur les avis publiés à ce jour (moins de dix) — d'où l'intérêt d'en rassembler davantage, et de les afficher ici, en direct.</p>
+    <div class="avis">
+      <div class="av"><div class="st">★★★★★</div><p class="q">« Travail soigné et bon conseil sur le support. On a été suivis du fichier jusqu'à la pose. »</p><p class="m">— un commerçant du secteur</p></div>
+      <div class="av"><div class="st">★★★★★</div><p class="q">« Réactifs et à l'écoute pour notre covering. Le rendu est nickel. »</p><p class="m">— une entreprise locale</p></div>
+      <div class="av"><div class="st">★★★★★</div><p class="q">« Un vrai savoir-faire de proximité, on recommande pour la signalétique. »</p><p class="m">— un client de Hautmont</p></div>
+    </div>
+    <p class="note-avis">Extraits représentatifs. Sur le site final, vos <b style="color:#f4f1ea">vrais avis Google</b> s'afficheront ici, à jour.</p>
+  </div>
+</section>
+
+<!-- DEVIS -->
+<section id="devis">
+  <div class="wrap">
+    <div class="eyebrow">Un projet en tête ?</div>
+    <h2 class="h2">Demander un devis</h2>
+    <p class="sub">Dites-nous le support, le format et la quantité — joignez votre fichier si vous l'avez. On revient vers vous pour affiner et chiffrer.</p>
+    <form class="devis" onsubmit="return false;">
+      <div class="head"><b>Votre demande de devis</b><span>EUROFF 7 · FICHE DE FABRICATION</span></div>
+      <div class="body">
+        <div class="grid">
+          <div class="full">
+            <label>Type de support</label>
+            <select><option>Enseigne</option><option>Signalétique / totem</option><option>Covering véhicule</option><option>Banderole / kakémono</option><option>Panneau (chantier, immobilier, PLV)</option><option>Impression (cartes, flyers, affiches)</option><option>Habillage de vitrine</option><option>Autre / je ne sais pas encore</option></select>
+          </div>
+          <div><label>Format / dimensions</label><input type="text" placeholder="ex. 2000 × 800 mm"></div>
+          <div><label>Quantité</label><input type="number" min="1" value="1"></div>
+          <div class="full">
+            <label>Votre fichier (optionnel)</label>
+            <div class="file">＋ Déposer un fichier — PDF, AI, JPG, PNG (démo)</div>
+          </div>
+          <div><label>Délai souhaité</label><select><option>Dès que possible</option><option>Sous 1 semaine</option><option>Sous 2 semaines</option><option>Pas pressé</option></select></div>
+          <div><label>Téléphone</label><input type="tel" placeholder="03 …"></div>
+          <div class="full"><label>Précisions</label><textarea placeholder="Décrivez votre projet en quelques mots…"></textarea></div>
+          <div><label>Nom / société</label><input type="text" placeholder="Votre nom"></div>
+          <div><label>Email</label><input type="email" placeholder="vous@exemple.fr"></div>
+        </div>
+        <button class="go" type="submit">Envoyer ma demande →</button>
+        <p class="demo-note">Maquette de démonstration — le formulaire n'envoie encore rien. Sur le site final, la demande (et le fichier) arrivent directement à l'atelier.</p>
+      </div>
+    </form>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section id="contact">
+  <div class="wrap">
+    <div class="eyebrow">Nous trouver</div>
+    <h2 class="h2">L'atelier</h2>
+    <div class="contact">
+      <div class="ct"><div class="n">Adresse</div><h4>82 rue Sainte-Anne</h4><p>59330 Hautmont<br>Sambre-Avesnois</p></div>
+      <div class="ct"><div class="n">Horaires</div><h4>Lun — Jeu · 8h30-18h</h4><p>Vendredi · 8h30-17h<br>Week-end fermé</p></div>
+      <div class="ct"><div class="n">Contact</div><h4><a href="tel:+33327653622">03 27 65 36 22</a></h4><p>Devis &amp; conseil<br>sur rendez-vous</p></div>
+    </div>
+  </div>
+</section>
+
+<footer class="foot">
+  <div class="cmyk"><i class="ic"></i><i class="im"></i><i class="iy"></i><i class="ik"></i></div>
+  <div class="in">
+    <div><b>EUROFF 7 COMMUNICATION</b> — SARL · Imprimerie &amp; signalétique · Hautmont (59)</div>
+    <div>Maquette de présentation · Everywhere · contenu &amp; visuels à valider</div>
+  </div>
+</footer>
+
+</body>
+</html>
