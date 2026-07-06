@@ -1,0 +1,671 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Euroff 7 Communication — Imprimerie &amp; signalétique à Hautmont (version fidèle)</title>
+<!--
+  DÉCLINAISON « REPRISE » — registre classique, fidèle à l'image actuelle de l'atelier.
+  Note interne : aucune charte couleur officielle d'Euroff 7 n'est documentée au dossier
+  (présence relevée : page Facebook + mail wanadoo, pas de charte graphique publiée).
+  Registre choisi : bleu profond / brique sobre, classique d'atelier — À VALIDER avec l'atelier.
+  Photos = illustrations à remplacer par les vraies réalisations (mêmes fichiers que la maquette).
+  Formulaire inerte : rien n'est envoyé, aucune donnée collectée.
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@600;700;800&family=Open+Sans:wght@400;600;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --bleu:#17457c;      /* bleu profond — principal */
+  --bleu-f:#0e2e54;    /* bleu nuit — bandeaux */
+  --bleu-l:#e8eef6;    /* bleu très clair — fonds doux */
+  --brique:#bf3b2b;    /* brique sobre — accent */
+  --enc:#1c2733;       /* texte */
+  --gris:#5c6b7a;      /* texte secondaire */
+  --ligne:#dfe5ec;     /* filets */
+  --fond:#ffffff;
+  --fond2:#f4f6f9;
+}
+*{margin:0;padding:0;box-sizing:border-box}
+html{scroll-behavior:smooth}
+body{font-family:'Open Sans',system-ui,sans-serif;color:var(--enc);background:var(--fond);line-height:1.65;-webkit-font-smoothing:antialiased;overflow-x:hidden}
+img{max-width:100%;display:block}
+a{color:inherit}
+h1,h2,h3,h4{font-family:'Montserrat',sans-serif;line-height:1.15}
+.wrap{max-width:1140px;margin:0 auto;padding:0 clamp(18px,4vw,44px)}
+:focus-visible{outline:2px solid var(--brique);outline-offset:2px}
+
+/* ===== bandeau démonstration ===== */
+.demoband{background:var(--bleu-f);color:#cfdcec;font-size:12px;padding:7px 0;text-align:center}
+.demoband b{color:#fff;font-weight:600}
+.demoband .dot{display:inline-block;width:6px;height:6px;border-radius:50%;background:var(--brique);margin-right:8px;vertical-align:1px}
+
+/* ===== topbar coordonnées ===== */
+.topbar{background:var(--bleu);color:#e8eef6;font-size:13px}
+.topbar .in{display:flex;justify-content:space-between;align-items:center;gap:14px;padding:7px 0;flex-wrap:wrap}
+.topbar a{color:#fff;text-decoration:none;font-weight:600}
+.topbar a:hover{text-decoration:underline}
+.topbar .item{display:inline-flex;align-items:center;gap:7px;white-space:nowrap}
+.topbar svg{width:14px;height:14px;flex:none}
+@media(max-width:720px){.topbar .hide-s{display:none}}
+
+/* ===== en-tête ===== */
+header.site{position:sticky;top:0;z-index:50;background:var(--fond);border-bottom:1px solid var(--ligne);box-shadow:0 1px 0 rgba(23,69,124,.04)}
+.site .in{display:flex;align-items:center;justify-content:space-between;gap:18px;padding:14px 0}
+.logo{display:flex;align-items:center;gap:12px;text-decoration:none}
+.logo .cube{width:46px;height:46px;flex:none;background:var(--bleu);color:#fff;display:grid;place-items:center;border-radius:9px;font-family:'Montserrat';font-weight:800;font-size:19px;letter-spacing:-.5px}
+.logo .cube span{color:#ffd9d2}
+.logo .txt b{display:block;font-family:'Montserrat';font-weight:800;font-size:17px;letter-spacing:.2px;line-height:1.05}
+.logo .txt b i{font-style:normal;color:var(--brique)}
+.logo .txt small{display:block;font-size:11px;color:var(--gris);letter-spacing:.4px;margin-top:2px}
+nav.main{display:none;align-items:center;gap:24px;font-size:14.5px;font-weight:600}
+nav.main a{text-decoration:none;color:var(--enc)}
+nav.main a:hover{color:var(--bleu)}
+.btn{display:inline-flex;align-items:center;gap:9px;background:var(--brique);color:#fff;text-decoration:none;font-family:'Montserrat';font-weight:700;font-size:14.5px;padding:12px 20px;border-radius:8px;border:none;cursor:pointer;transition:background .15s ease,transform .12s ease}
+.btn:hover{background:#a83022}
+.btn:active{transform:translateY(1px)}
+.btn.ghost{background:transparent;color:var(--bleu);border:2px solid var(--bleu);padding:10px 18px}
+.btn.ghost:hover{background:var(--bleu-l)}
+.btn.bleu{background:var(--bleu)}
+.btn.bleu:hover{background:var(--bleu-f)}
+@media(min-width:920px){nav.main{display:flex}}
+
+/* ===== héro ===== */
+.hero{background:linear-gradient(180deg,#fff 0%,var(--fond2) 100%);border-bottom:1px solid var(--ligne)}
+.hero .in{display:grid;grid-template-columns:1fr;gap:36px;align-items:center;padding:clamp(38px,6vw,74px) 0}
+@media(min-width:880px){.hero .in{grid-template-columns:1.05fr .95fr}}
+.kicker{display:inline-flex;align-items:center;gap:9px;background:var(--bleu-l);color:var(--bleu);font-size:12.5px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;padding:6px 13px;border-radius:99px;margin-bottom:18px}
+.kicker::before{content:"";width:7px;height:7px;border-radius:50%;background:var(--brique)}
+.hero h1{font-weight:800;font-size:clamp(30px,4.6vw,50px);letter-spacing:-1px;color:var(--bleu-f);text-wrap:balance}
+.hero h1 em{font-style:normal;color:var(--brique)}
+.hero .lead{margin-top:18px;font-size:clamp(15.5px,1.8vw,18px);color:var(--gris);max-width:56ch}
+.hero .acts{margin-top:28px;display:flex;gap:12px;flex-wrap:wrap}
+.hero .points{margin-top:26px;display:flex;flex-wrap:wrap;gap:8px 22px;font-size:13.5px;color:var(--gris)}
+.hero .points span{display:inline-flex;align-items:center;gap:8px}
+.hero .points svg{width:15px;height:15px;color:var(--bleu)}
+.hero .visu{position:relative}
+.hero .visu img{border-radius:14px;border:1px solid var(--ligne);box-shadow:0 18px 44px rgba(14,46,84,.14);aspect-ratio:4/3;object-fit:cover;width:100%}
+.hero .visu .tag{position:absolute;left:14px;bottom:14px;background:rgba(14,46,84,.88);color:#fff;font-size:11.5px;padding:7px 12px;border-radius:7px;backdrop-filter:blur(2px)}
+.hero .visu .depuis{position:absolute;top:-14px;right:18px;background:var(--brique);color:#fff;font-family:'Montserrat';font-weight:800;font-size:13px;letter-spacing:.5px;padding:9px 15px;border-radius:9px;box-shadow:0 8px 18px rgba(191,59,43,.3)}
+
+/* ===== bande repères ===== */
+.bande{background:var(--bleu);color:#fff}
+.bande .in{display:grid;grid-template-columns:repeat(2,1fr);gap:0;padding:0}
+@media(min-width:880px){.bande .in{grid-template-columns:repeat(4,1fr)}}
+.bande .cell{padding:20px 18px;border-right:1px solid rgba(255,255,255,.14);border-bottom:1px solid rgba(255,255,255,.14)}
+.bande .cell b{display:block;font-family:'Montserrat';font-weight:700;font-size:16px}
+.bande .cell small{display:block;font-size:12px;color:#bcd0e6;margin-top:3px}
+
+/* ===== sections ===== */
+section.bloc{padding:clamp(48px,7vw,86px) 0}
+section.bloc.alt{background:var(--fond2);border-top:1px solid var(--ligne);border-bottom:1px solid var(--ligne)}
+.surt{font-size:12.5px;font-weight:700;letter-spacing:1.6px;text-transform:uppercase;color:var(--brique);display:flex;align-items:center;gap:10px;margin-bottom:12px}
+.surt::before{content:"";width:26px;height:2px;background:var(--brique)}
+h2.titre{font-weight:800;font-size:clamp(25px,3.4vw,38px);letter-spacing:-.6px;color:var(--bleu-f);text-wrap:balance}
+.soust{margin-top:12px;color:var(--gris);max-width:62ch;font-size:15.5px}
+
+/* services */
+.serv{margin-top:38px;display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.serv{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.serv{grid-template-columns:repeat(4,1fr)}}
+.sv{background:var(--fond);border:1px solid var(--ligne);border-radius:12px;padding:22px 20px;transition:transform .15s ease,box-shadow .15s ease,border-color .15s ease}
+.sv:hover{transform:translateY(-3px);box-shadow:0 12px 26px rgba(14,46,84,.09);border-color:#c9d6e6}
+.sv .ic{width:44px;height:44px;border-radius:10px;background:var(--bleu-l);color:var(--bleu);display:grid;place-items:center;margin-bottom:14px}
+.sv .ic svg{width:22px;height:22px}
+.sv h3{font-size:16px;font-weight:700;color:var(--bleu-f);letter-spacing:-.2px}
+.sv p{margin-top:7px;font-size:13.5px;color:var(--gris);line-height:1.55}
+
+/* réalisations */
+.galerie{margin-top:38px;display:grid;grid-template-columns:1fr;gap:18px}
+@media(min-width:620px){.galerie{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:960px){.galerie{grid-template-columns:repeat(3,1fr)}}
+.galerie figure{position:relative;border-radius:12px;overflow:hidden;border:1px solid var(--ligne);background:#fff}
+.galerie img{aspect-ratio:4/3;object-fit:cover;width:100%;transition:transform .25s ease}
+.galerie figure:hover img{transform:scale(1.03)}
+.galerie figcaption{position:absolute;left:0;right:0;bottom:0;padding:34px 16px 13px;background:linear-gradient(180deg,transparent,rgba(14,46,84,.82));color:#fff}
+.galerie figcaption b{display:block;font-family:'Montserrat';font-weight:700;font-size:15px}
+.galerie figcaption small{font-size:11.5px;color:#cfdcec}
+.note-photos{margin-top:18px;font-size:12.5px;color:var(--gris);display:flex;align-items:center;gap:9px}
+.note-photos svg{width:15px;height:15px;flex:none;color:var(--brique)}
+
+/* méthode */
+.etapes{margin-top:38px;display:grid;grid-template-columns:1fr;gap:16px;counter-reset:et}
+@media(min-width:720px){.etapes{grid-template-columns:repeat(4,1fr)}}
+.et{background:var(--fond);border:1px solid var(--ligne);border-radius:12px;padding:22px 20px;position:relative}
+.et .n{width:34px;height:34px;border-radius:50%;background:var(--bleu);color:#fff;display:grid;place-items:center;font-family:'Montserrat';font-weight:700;font-size:14px;margin-bottom:13px}
+.et h3{font-size:15.5px;font-weight:700;color:var(--bleu-f)}
+.et p{margin-top:7px;font-size:13.5px;color:var(--gris);line-height:1.55}
+.et::after{content:"→";position:absolute;top:26px;right:-13px;color:#b6c4d4;font-weight:700;display:none}
+@media(min-width:720px){.et:not(:last-child)::after{display:block}}
+
+/* atelier */
+.atelier{margin-top:38px;display:grid;grid-template-columns:1fr;gap:26px;align-items:stretch}
+@media(min-width:880px){.atelier{grid-template-columns:1.1fr .9fr}}
+.atelier .txt p{color:var(--gris);font-size:15.5px;max-width:56ch}
+.atelier .txt p + p{margin-top:14px}
+.atelier .txt .depuis-l{font-family:'Montserrat';font-weight:800;font-size:clamp(46px,7vw,74px);letter-spacing:-2px;color:var(--bleu);line-height:1;margin:6px 0 18px}
+.atelier .txt .depuis-l small{display:block;font-size:12px;letter-spacing:3px;color:var(--brique);font-weight:700;margin-bottom:6px}
+.infos{background:var(--fond);border:1px solid var(--ligne);border-radius:14px;overflow:hidden;display:flex;flex-direction:column}
+.infos .tete{background:var(--bleu);color:#fff;padding:15px 20px;font-family:'Montserrat';font-weight:700;font-size:15px}
+.infos .ligne{display:flex;gap:13px;padding:15px 20px;border-bottom:1px solid var(--ligne);font-size:14px;align-items:flex-start}
+.infos .ligne:last-child{border-bottom:none}
+.infos .ligne svg{width:17px;height:17px;flex:none;color:var(--bleu);margin-top:2px}
+.infos .ligne b{display:block;font-weight:700;color:var(--bleu-f)}
+.infos .ligne span{color:var(--gris)}
+.infos .ligne a{font-weight:700;color:var(--bleu);text-decoration:none}
+.infos .ligne a:hover{text-decoration:underline}
+
+/* avis */
+.avis-tete{display:flex;align-items:baseline;gap:18px;flex-wrap:wrap;margin-top:8px}
+.avis-tete .note{font-family:'Montserrat';font-weight:800;font-size:clamp(42px,6vw,64px);color:var(--bleu-f);letter-spacing:-2px;line-height:1}
+.avis-tete .note small{font-size:.45em;color:var(--gris);font-weight:700}
+.avis-tete .etoiles{color:#e9a51a;font-size:19px;letter-spacing:3px}
+.avis-tete p{font-size:13px;color:var(--gris);max-width:46ch}
+.avis{margin-top:30px;display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:820px){.avis{grid-template-columns:repeat(3,1fr)}}
+.av{background:var(--fond);border:1px solid var(--ligne);border-radius:12px;padding:22px 20px}
+.av .st{color:#e9a51a;letter-spacing:3px;font-size:14px}
+.av p{margin:12px 0;font-size:14.5px;line-height:1.6;color:#33404d}
+.av .qui{font-size:11.5px;color:var(--gris);text-transform:uppercase;letter-spacing:1px;font-weight:600}
+.avis-foot{margin-top:18px;font-size:12.5px;color:var(--gris)}
+.avis-foot b{color:var(--enc)}
+
+/* devis */
+#devis{background:var(--bleu-f);color:#fff;border-top:none}
+#devis .surt{color:#ffb3a7}#devis .surt::before{background:#ffb3a7}
+#devis h2.titre{color:#fff}
+#devis .soust{color:#bcd0e6}
+.formcard{margin-top:36px;background:#fff;color:var(--enc);border-radius:14px;overflow:hidden;box-shadow:0 24px 60px rgba(0,0,0,.3);max-width:860px}
+.formcard .tete{background:var(--bleu);color:#fff;padding:17px 24px;display:flex;justify-content:space-between;align-items:center;gap:10px;flex-wrap:wrap}
+.formcard .tete b{font-family:'Montserrat';font-weight:700;font-size:16.5px}
+.formcard .tete span{font-size:12px;color:#bcd0e6}
+.formcard .corps{padding:26px 24px}
+.fgrid{display:grid;grid-template-columns:1fr 1fr;gap:18px}
+.fgrid .full{grid-column:1/-1}
+.champ label{display:block;font-size:12px;font-weight:700;letter-spacing:.6px;text-transform:uppercase;color:var(--gris);margin-bottom:7px}
+.champ label b{color:var(--brique)}
+.champ input,.champ select,.champ textarea{width:100%;padding:12px 13px;border:1.5px solid var(--ligne);border-radius:8px;background:var(--fond2);font-family:inherit;font-size:15px;color:var(--enc)}
+.champ textarea{resize:vertical;min-height:80px}
+.champ input:focus,.champ select:focus,.champ textarea:focus{outline:2px solid var(--bleu);outline-offset:-1px;border-color:var(--bleu);background:#fff}
+.depot{border:1.5px dashed #b6c4d4;border-radius:9px;background:var(--fond2);padding:18px;text-align:center;font-size:13px;color:var(--gris);cursor:pointer;transition:background .15s ease}
+.depot:hover{background:var(--bleu-l)}
+.depot b{display:block;font-size:19px;color:var(--bleu);line-height:1;margin-bottom:5px}
+.frow{grid-column:1/-1;display:flex;justify-content:space-between;align-items:center;gap:16px;flex-wrap:wrap;border-top:1px solid var(--ligne);padding-top:20px}
+.frow .mention{font-size:12px;color:var(--gris);max-width:44ch;line-height:1.55}
+.demo-msg{grid-column:1/-1;display:none;background:var(--bleu-l);border:1.5px solid var(--bleu);border-radius:9px;padding:14px 16px;font-size:14px;color:var(--bleu-f)}
+.demo-msg.on{display:block}
+.demo-msg b{font-family:'Montserrat'}
+.demo-inline{grid-column:1/-1;font-size:11.5px;color:var(--gris);text-align:center}
+
+/* contact */
+.coords{margin-top:38px;display:grid;grid-template-columns:1fr;gap:16px}
+@media(min-width:640px){.coords{grid-template-columns:repeat(2,1fr)}}
+@media(min-width:980px){.coords{grid-template-columns:repeat(4,1fr)}}
+.co{background:var(--fond);border:1px solid var(--ligne);border-radius:12px;padding:22px 20px}
+.co .k{font-size:11px;font-weight:700;letter-spacing:1.4px;text-transform:uppercase;color:var(--brique)}
+.co h3{font-size:16.5px;font-weight:700;color:var(--bleu-f);margin:9px 0 5px}
+.co p{font-size:13.5px;color:var(--gris);line-height:1.6}
+.co a{color:var(--bleu);font-weight:700;text-decoration:none}
+.co a:hover{text-decoration:underline}
+.fb-note{margin-top:18px;font-size:13px;color:var(--gris)}
+.fb-note b{color:var(--bleu-f)}
+
+/* pied */
+footer.pied{background:var(--bleu-f);color:#9fb4cc}
+.pied .haut{display:flex;flex-wrap:wrap;gap:26px 46px;justify-content:space-between;padding:38px 0 26px}
+.pied .blocp{max-width:36ch}
+.pied .blocp .t{font-size:11px;font-weight:700;letter-spacing:2px;text-transform:uppercase;color:#6f87a3;margin-bottom:9px}
+.pied .blocp p{font-size:13px;line-height:1.7}
+.pied .blocp b{color:#fff;font-weight:600}
+.pied .barre{border-top:1px solid rgba(255,255,255,.12);padding:16px 0 20px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:12px;font-size:12px;color:#6f87a3}
+.pied .barre a{color:#9fb4cc;text-decoration:none;border-bottom:1px solid rgba(255,255,255,.2)}
+.pied .barre a:hover{color:#fff}
+
+/* pastille autre version */
+.autrever{position:fixed;right:14px;bottom:14px;z-index:60;background:#fff;border:1.5px solid var(--bleu);color:var(--bleu-f);font-size:12px;font-weight:700;padding:10px 14px;border-radius:99px;text-decoration:none;box-shadow:0 8px 22px rgba(14,46,84,.18)}
+.autrever:hover{background:var(--bleu);color:#fff}
+
+@media(prefers-reduced-motion:reduce){*{transition:none!important;animation:none!important;scroll-behavior:auto!important}}
+@media(max-width:640px){
+  .fgrid{grid-template-columns:1fr}
+  .hero .acts .btn{width:100%;justify-content:center}
+}
+</style>
+</head>
+<body>
+
+<!-- bandeau démonstration -->
+<div class="demoband"><span class="dot"></span>Démonstration — préparée pour <b>Euroff 7 Communication</b> · déclinaison fidèle à votre image · contenu &amp; visuels à valider</div>
+
+<!-- topbar -->
+<div class="topbar">
+  <div class="wrap in">
+    <span class="item">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+      <a href="tel:+33327653622">03 27 65 36 22</a>
+    </span>
+    <span class="item hide-s">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+      Lun – Jeu · 8h30 – 18h &nbsp;·&nbsp; Ven · 8h30 – 17h
+    </span>
+    <span class="item hide-s">82 rue Sainte-Anne, 59330 Hautmont</span>
+  </div>
+</div>
+
+<!-- en-tête -->
+<header class="site">
+  <div class="wrap in">
+    <a class="logo" href="#haut" aria-label="Euroff 7 Communication — haut de page">
+      <span class="cube">E<span>7</span></span>
+      <span class="txt">
+        <b>EUROFF <i>7</i> COMMUNICATION</b>
+        <small>Imprimerie &amp; communication visuelle — Hautmont</small>
+      </span>
+    </a>
+    <nav class="main" aria-label="Navigation principale">
+      <a href="#services">Services</a>
+      <a href="#realisations">Réalisations</a>
+      <a href="#atelier">L'atelier</a>
+      <a href="#avis">Avis</a>
+      <a href="#contact">Contact</a>
+    </nav>
+    <a class="btn" href="#devis">Demander un devis</a>
+  </div>
+</header>
+
+<main id="haut">
+
+  <!-- héro -->
+  <section class="hero">
+    <div class="wrap in">
+      <div>
+        <span class="kicker">Hautmont · Sambre-Avesnois</span>
+        <h1>Imprimerie &amp; communication visuelle, <em>depuis 2005</em>.</h1>
+        <p class="lead">Enseignes, signalétique, covering de véhicules, habillage de vitrines, banderoles,
+        impression offset et numérique — conçus à l'atelier, rue Sainte-Anne, et posés sur site.</p>
+        <div class="acts">
+          <a class="btn" href="#devis">Demander un devis</a>
+          <a class="btn ghost" href="#realisations">Voir nos réalisations</a>
+        </div>
+        <div class="points">
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Atelier à Hautmont</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Offset &amp; numérique</span>
+          <span><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 6 9 17l-5-5"/></svg>Conception, tirage et pose</span>
+        </div>
+      </div>
+      <div class="visu">
+        <span class="depuis">DEPUIS 2005</span>
+        <img src="../maquette/img/offset.jpg" alt="Travail sur presse offset à l'atelier — photo d'illustration" width="1200" height="900">
+        <span class="tag">Photo d'illustration — à remplacer par vos images d'atelier</span>
+      </div>
+    </div>
+  </section>
+
+  <!-- bande repères -->
+  <div class="bande" role="presentation">
+    <div class="wrap in">
+      <div class="cell"><b>Depuis 2005</b><small>l'atelier, à Hautmont</small></div>
+      <div class="cell"><b>Offset &amp; numérique</b><small>petits et grands volumes</small></div>
+      <div class="cell"><b>Pose sur tous supports</b><small>façade, véhicule, vitrine</small></div>
+      <div class="cell"><b>Du fichier à la pose</b><small>un seul interlocuteur</small></div>
+    </div>
+  </div>
+
+  <!-- services -->
+  <section class="bloc" id="services">
+    <div class="wrap">
+      <p class="surt">Nos services</p>
+      <h2 class="titre">Ce que l'atelier fabrique</h2>
+      <p class="soust">Un même atelier pour l'impression et la communication visuelle : on conçoit,
+      on imprime et on pose, pour les commerces, les entreprises et les collectivités du secteur.</p>
+
+      <div class="serv">
+        <article class="sv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9V3h12v6"/><path d="M6 18H4a2 2 0 0 1-2-2v-5a2 2 0 0 1 2-2h16a2 2 0 0 1 2 2v5a2 2 0 0 1-2 2h-2"/><rect x="6" y="14" width="12" height="7"/></svg></span>
+          <h3>Impression offset &amp; numérique</h3>
+          <p>Cartes, flyers, affiches, dépliants — petits et grands volumes, tirés à l'atelier.</p>
+        </article>
+        <article class="sv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 3h18v7H3z"/><path d="M8 10v11M16 10v11M5 21h14"/></svg></span>
+          <h3>Enseignes</h3>
+          <p>Enseignes de façade, lettres découpées, caissons — conception et pose.</p>
+        </article>
+        <article class="sv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 22V8M12 8V2M12 8h7l2 2-2 2h-7M12 14H5l-2-2 2-2h7"/></svg></span>
+          <h3>Signalétique</h3>
+          <p>Totems, plaques, fléchage — signalétique intérieure et extérieure.</p>
+        </article>
+        <article class="sv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M3 15l2-6a2 2 0 0 1 1.9-1.4h10.2A2 2 0 0 1 19 9l2 6"/><path d="M2 15h20v4a1 1 0 0 1-1 1h-1.5M2 15v4a1 1 0 0 0 1 1h1.5"/><circle cx="7" cy="18" r="2"/><circle cx="17" cy="18" r="2"/></svg></span>
+          <h3>Covering véhicules</h3>
+          <p>Marquage partiel ou total covering, sur voiture et utilitaire.</p>
+        </article>
+        <article class="sv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="3" y="3" width="18" height="18" rx="1"/><path d="M3 12h18M12 3v18"/></svg></span>
+          <h3>Habillage de vitrines</h3>
+          <p>Adhésifs, dépoli, vitrophanie — la devanture qui parle pour vous.</p>
+        </article>
+        <article class="sv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 22V4a2 2 0 0 1 2-2h12a2 2 0 0 1 2 2v18"/><path d="M4 7h16M9 22v-4h6v4"/></svg></span>
+          <h3>Banderoles &amp; kakémonos</h3>
+          <p>Bâches, roll-up, kakémonos — pour vos événements et vos façades.</p>
+        </article>
+        <article class="sv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="4" y="3" width="16" height="12" rx="1"/><path d="M12 15v6M8 21h8"/></svg></span>
+          <h3>Panneaux &amp; PLV</h3>
+          <p>Panneaux chantier, immobilier, PLV — tous supports rigides.</p>
+        </article>
+        <article class="sv">
+          <span class="ic"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M14.7 6.3a4.5 4.5 0 0 0-6 6L3 18l3 3 5.7-5.7a4.5 4.5 0 0 0 6-6L14 13l-3-3 3.7-3.7z"/></svg></span>
+          <h3>Pose sur site</h3>
+          <p>On ne fait pas que produire : on installe, proprement, sur place.</p>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- réalisations -->
+  <section class="bloc alt" id="realisations">
+    <div class="wrap">
+      <p class="surt">Nos réalisations</p>
+      <h2 class="titre">Le travail parle de lui-même</h2>
+      <p class="soust">Enseignes, covering, grand format, impression : voici la place que prendront
+      vos réalisations — chaque projet, une image.</p>
+
+      <div class="galerie">
+        <figure>
+          <img src="../maquette/img/enseigne.jpg" alt="Enseigne lumineuse de façade — photo d'illustration" loading="lazy" width="800" height="600">
+          <figcaption><b>Enseignes</b><small>enseigne lumineuse · façade</small></figcaption>
+        </figure>
+        <figure>
+          <img src="../maquette/img/covering.jpg" alt="Films et adhésifs pour covering — photo d'illustration" loading="lazy" width="800" height="600">
+          <figcaption><b>Covering &amp; adhésifs</b><small>vinyle · voiture &amp; utilitaire</small></figcaption>
+        </figure>
+        <figure>
+          <img src="../maquette/img/grandformat.jpg" alt="Impression numérique grand format — photo d'illustration" loading="lazy" width="800" height="600">
+          <figcaption><b>Grand format</b><small>bâche, banderole, kakémono</small></figcaption>
+        </figure>
+        <figure>
+          <img src="../maquette/img/plv.jpg" alt="PLV et habillage d'espace de vente — photo d'illustration" loading="lazy" width="800" height="600">
+          <figcaption><b>PLV &amp; vitrines</b><small>habillage · stand · pose</small></figcaption>
+        </figure>
+        <figure>
+          <img src="../maquette/img/offset.jpg" alt="Presse offset à l'atelier — photo d'illustration" loading="lazy" width="800" height="600">
+          <figcaption><b>Impression offset</b><small>petits &amp; grands volumes</small></figcaption>
+        </figure>
+        <figure>
+          <img src="../maquette/img/cmjn.jpg" alt="Encres quadri CMJN — photo d'illustration" loading="lazy" width="800" height="600">
+          <figcaption><b>Encres &amp; calage</b><small>quadri CMJN · le savoir-faire</small></figcaption>
+        </figure>
+      </div>
+
+      <p class="note-photos">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 8v4M12 16h.01"/></svg>
+        Photos d'illustration — vos vraies réalisations viendront prendre exactement cette place, à valider ensemble.
+      </p>
+    </div>
+  </section>
+
+  <!-- méthode -->
+  <section class="bloc" id="methode">
+    <div class="wrap">
+      <p class="surt">Comment on travaille</p>
+      <h2 class="titre">Du fichier à la pose</h2>
+      <div class="etapes">
+        <div class="et"><span class="n">1</span><h3>Le calage</h3><p>On part de votre fichier (ou on le crée), on cale couleurs et formats.</p></div>
+        <div class="et"><span class="n">2</span><h3>Le bon à tirer</h3><p>On vous soumet une épreuve : ce que vous validez, c'est ce qui sort.</p></div>
+        <div class="et"><span class="n">3</span><h3>Le tirage</h3><p>Impression offset ou numérique, à l'atelier, sur le bon support.</p></div>
+        <div class="et"><span class="n">4</span><h3>La pose</h3><p>Enseigne, covering, vitrine : on installe sur place, dans la Sambre-Avesnois.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- atelier -->
+  <section class="bloc alt" id="atelier">
+    <div class="wrap">
+      <p class="surt">L'atelier</p>
+      <h2 class="titre">Une adresse, rue Sainte-Anne</h2>
+      <div class="atelier">
+        <div class="txt">
+          <div class="depuis-l"><small>DEPUIS</small>2005</div>
+          <p>Depuis 2005, l'atelier habille les commerces, les entreprises et les véhicules de la
+          Sambre-Avesnois — de l'enseigne au covering, du fichier à la pose.</p>
+          <p>Impression offset et numérique, signalétique, enseignes, covering, vitrines, banderoles :
+          tout part du même atelier, à Hautmont, avec un seul interlocuteur du début à la fin.</p>
+        </div>
+        <div class="infos">
+          <div class="tete">Infos pratiques</div>
+          <div class="ligne">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M20 10c0 6-8 12-8 12s-8-6-8-12a8 8 0 0 1 16 0z"/><circle cx="12" cy="10" r="3"/></svg>
+            <div><b>Adresse</b><span>82 rue Sainte-Anne, 59330 Hautmont</span></div>
+          </div>
+          <div class="ligne">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="10"/><path d="M12 6v6l4 2"/></svg>
+            <div><b>Horaires</b><span>Lun – Jeu · 8h30 – 18h<br>Ven · 8h30 – 17h · week-end fermé</span></div>
+          </div>
+          <div class="ligne">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M22 16.9v3a2 2 0 0 1-2.2 2 19.8 19.8 0 0 1-8.6-3.1 19.5 19.5 0 0 1-6-6A19.8 19.8 0 0 1 2.1 4.2 2 2 0 0 1 4.1 2h3a2 2 0 0 1 2 1.7c.1 1 .4 2 .7 2.9a2 2 0 0 1-.5 2.1L8 10a16 16 0 0 0 6 6l1.3-1.3a2 2 0 0 1 2.1-.5c.9.3 1.9.6 2.9.7a2 2 0 0 1 1.7 2z"/></svg>
+            <div><b>Téléphone</b><a href="tel:+33327653622">03 27 65 36 22</a></div>
+          </div>
+          <div class="ligne">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-10 6L2 7"/></svg>
+            <div><b>Email</b><a href="mailto:euroff.7@wanadoo.fr">euroff.7@wanadoo.fr</a></div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- avis -->
+  <section class="bloc" id="avis">
+    <div class="wrap">
+      <p class="surt">Ce qu'on dit de l'atelier</p>
+      <h2 class="titre">Des retours francs</h2>
+      <div class="avis-tete">
+        <span class="note">5,0<small>/5</small></span>
+        <span class="etoiles" aria-hidden="true">★★★★★</span>
+        <p>Sur les avis publiés à ce jour — moins de dix. Une note franche, mais peu visible :
+        d'où l'intérêt de rassembler les retours et de les afficher ici, à jour.</p>
+      </div>
+      <div class="avis">
+        <div class="av">
+          <div class="st" aria-hidden="true">★★★★★</div>
+          <p>« Travail soigné et bon conseil sur le support. On a été suivis du fichier jusqu'à la pose. »</p>
+          <div class="qui">— un commerçant du secteur</div>
+        </div>
+        <div class="av">
+          <div class="st" aria-hidden="true">★★★★★</div>
+          <p>« Réactifs et à l'écoute pour notre covering. Le rendu est net. »</p>
+          <div class="qui">— une entreprise locale</div>
+        </div>
+        <div class="av">
+          <div class="st" aria-hidden="true">★★★★★</div>
+          <p>« Un vrai savoir-faire de proximité, on fait appel à eux pour la signalétique. »</p>
+          <div class="qui">— un client de Hautmont</div>
+        </div>
+      </div>
+      <p class="avis-foot">Extraits représentatifs. Sur le site final, vos <b>vrais avis</b> s'afficheront ici, à jour.</p>
+    </div>
+  </section>
+
+  <!-- devis -->
+  <section class="bloc" id="devis">
+    <div class="wrap">
+      <p class="surt">Un projet en tête ?</p>
+      <h2 class="titre">Demander un devis</h2>
+      <p class="soust">Indiquez le support, le format et la quantité — joignez votre fichier si vous l'avez.
+      On revient vers vous pour affiner et chiffrer.</p>
+
+      <form class="formcard" id="form-devis" novalidate aria-label="Demande de devis (démonstration)">
+        <div class="tete">
+          <b>Votre demande de devis</b>
+          <span>EUROFF 7 · Hautmont (59)</span>
+        </div>
+        <div class="corps">
+          <div class="fgrid">
+            <div class="champ full">
+              <label for="d-sup">Support à produire <b>*</b></label>
+              <select id="d-sup" name="support">
+                <option>Enseigne (façade, lettres, caisson)</option>
+                <option>Signalétique / totem / plaques</option>
+                <option>Covering véhicule</option>
+                <option>Banderole / kakémono / roll-up</option>
+                <option>Panneau (chantier, immobilier, PLV)</option>
+                <option>Impression (cartes, flyers, affiches)</option>
+                <option>Habillage de vitrine</option>
+                <option>Autre / je ne sais pas encore</option>
+              </select>
+            </div>
+            <div class="champ">
+              <label for="d-fmt">Format / dimensions</label>
+              <input id="d-fmt" name="format" type="text" placeholder="ex. 2000 × 800 mm" autocomplete="off">
+            </div>
+            <div class="champ">
+              <label for="d-qte">Quantité</label>
+              <input id="d-qte" name="quantite" type="text" placeholder="ex. 1 pièce · 500 ex." autocomplete="off">
+            </div>
+            <div class="champ full">
+              <label id="d-dep-l">Votre fichier <span style="text-transform:none;color:var(--gris)">(PDF, AI, JPG, PNG)</span></label>
+              <div class="depot" id="d-dep" role="button" tabindex="0" aria-labelledby="d-dep-l"><b>＋</b>Déposer un fichier — démonstration</div>
+            </div>
+            <div class="champ">
+              <label for="d-fin">Finition souhaitée</label>
+              <select id="d-fin" name="finition">
+                <option>À définir avec l'atelier</option>
+                <option>Mat</option>
+                <option>Brillant</option>
+                <option>Contrecollage / laminage</option>
+                <option>Œillets / renforts</option>
+                <option>Découpe à la forme</option>
+              </select>
+            </div>
+            <div class="champ">
+              <label for="d-ech">Échéance</label>
+              <select id="d-ech" name="echeance">
+                <option>À convenir ensemble</option>
+                <option>Pas pressé</option>
+                <option>Prochaines semaines</option>
+              </select>
+            </div>
+            <div class="champ full">
+              <label for="d-msg">Précisions</label>
+              <textarea id="d-msg" name="message" placeholder="Décrivez votre projet en quelques mots…"></textarea>
+            </div>
+            <div class="champ">
+              <label for="d-nom">Nom / société <b>*</b></label>
+              <input id="d-nom" name="nom" type="text" placeholder="Votre nom" autocomplete="name">
+            </div>
+            <div class="champ">
+              <label for="d-tel">Téléphone</label>
+              <input id="d-tel" name="tel" type="tel" placeholder="03 …" autocomplete="tel">
+            </div>
+            <div class="champ full">
+              <label for="d-eml">Email</label>
+              <input id="d-eml" name="email" type="email" placeholder="vous@exemple.fr" autocomplete="email">
+            </div>
+
+            <p class="demo-msg" id="demo-msg" role="status" aria-live="polite"></p>
+
+            <div class="frow">
+              <p class="mention">Demande sans engagement — l'atelier revient vers vous pour caler
+              le devis et l'épreuve.</p>
+              <button class="btn bleu" type="submit">Transmettre la demande</button>
+            </div>
+            <p class="demo-inline">Maquette de démonstration — le formulaire n'envoie encore rien.
+            Sur le site final, la demande (et le fichier) arrivent directement à l'atelier.</p>
+          </div>
+        </div>
+      </form>
+    </div>
+  </section>
+
+  <!-- contact -->
+  <section class="bloc" id="contact">
+    <div class="wrap">
+      <p class="surt">Nous trouver</p>
+      <h2 class="titre">L'atelier, à Hautmont</h2>
+      <div class="coords">
+        <div class="co">
+          <div class="k">Adresse</div>
+          <h3>82 rue Sainte-Anne</h3>
+          <p>59330 Hautmont<br>Sambre-Avesnois</p>
+        </div>
+        <div class="co">
+          <div class="k">Horaires</div>
+          <h3>Lun – Jeu · 8h30 – 18h</h3>
+          <p>Vendredi · 8h30 – 17h<br>Week-end fermé</p>
+        </div>
+        <div class="co">
+          <div class="k">Téléphone</div>
+          <h3><a href="tel:+33327653622">03 27 65 36 22</a></h3>
+          <p>Devis &amp; conseil<br>sur rendez-vous</p>
+        </div>
+        <div class="co">
+          <div class="k">Email</div>
+          <h3 style="word-break:break-word"><a href="mailto:euroff.7@wanadoo.fr">euroff.7@wanadoo.fr</a></h3>
+          <p>On vous répond<br>aux horaires d'atelier</p>
+        </div>
+      </div>
+      <p class="fb-note">L'atelier est aussi présent sur Facebook : page <b>Euroff7communication</b>.</p>
+    </div>
+  </section>
+
+</main>
+
+<!-- pied -->
+<footer class="pied">
+  <div class="wrap">
+    <div class="haut">
+      <div class="blocp">
+        <div class="t">L'atelier</div>
+        <p><b>EUROFF 7 COMMUNICATION</b> — SARL · imprimerie &amp; signalétique ·
+        82 rue Sainte-Anne, 59330 Hautmont · <b>03 27 65 36 22</b></p>
+      </div>
+      <div class="blocp">
+        <div class="t">Fabrication</div>
+        <p>Impression offset &amp; numérique · enseignes · signalétique · covering ·
+        vitrines · banderoles · panneaux · pose sur site.</p>
+      </div>
+      <div class="blocp">
+        <div class="t">Ours</div>
+        <p><b>Imprimé par Euroff 7.</b> Mis en ligne par <b>Everywhere</b> —
+        cabinet d'accompagnement numérique.</p>
+      </div>
+    </div>
+    <div class="barre">
+      <span>Maquette de démonstration · contenu &amp; visuels à valider · rien n'est publié.</span>
+      <span><a href="../">Retour à l'accueil de la démonstration</a> &nbsp;·&nbsp; <a href="../maquette/">Voir l'autre version</a></span>
+    </div>
+  </div>
+</footer>
+
+<!-- pastille vers l'autre version -->
+<a class="autrever" href="../maquette/">Voir l'autre version →</a>
+
+<script>
+(function(){
+  // Formulaire de démonstration : INERTE. Rien n'est envoyé, rien n'est stocké.
+  var form = document.getElementById('form-devis');
+  var msg  = document.getElementById('demo-msg');
+  if (form && msg) {
+    form.addEventListener('submit', function(e){
+      e.preventDefault();
+      msg.innerHTML = '<b>Démonstration — module optionnel.</b> Rien n’a été envoyé : sur le site final, votre demande (et votre fichier) arriveraient directement à l’atelier.';
+      msg.classList.add('on');
+      msg.scrollIntoView({behavior:'smooth', block:'nearest'});
+      return false;
+    });
+  }
+  // Zone de dépôt : simple indication, aucun fichier n'est lu ni transmis.
+  var dep = document.getElementById('d-dep');
+  if (dep) {
+    var depNote = function(){ dep.innerHTML = '<b>＋</b>Démonstration — le dépôt de fichier sera actif sur le site final.'; };
+    dep.addEventListener('click', depNote);
+    dep.addEventListener('keydown', function(e){ if(e.key==='Enter'||e.key===' '){ e.preventDefault(); depNote(); } });
+  }
+})();
+</script>
+</body>
+</html>

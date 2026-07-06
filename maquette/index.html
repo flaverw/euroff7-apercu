@@ -328,6 +328,16 @@ body::after{
 .cmykline{display:flex;height:6px}
 .cmykline i{flex:1}.cmykline .ic{background:var(--c)}.cmykline .im{background:var(--m)}.cmykline .iy{background:var(--y)}.cmykline .ig{background:#6d6a62}.cmykline .ik{background:var(--paper)}
 
+/* ============ PASTILLE AUTRE VERSION ============ */
+.autrever{
+  position:fixed;right:14px;bottom:14px;z-index:60;
+  background:var(--paper);border:1.5px solid var(--ink);color:var(--ink);
+  font-family:'IBM Plex Mono',monospace;font-size:11px;letter-spacing:.5px;
+  padding:9px 13px;text-decoration:none;box-shadow:4px 4px 0 rgba(17,17,17,.75);
+}
+.autrever:hover{background:var(--y)}
+.autrever:focus-visible{outline:2px solid var(--m);outline-offset:2px}
+
 /* ============ QA MODE ============ */
 body.qa .press,body.qa .sig,body.qa .frameix,body.qa .since{min-height:auto!important;height:auto!important}
 body.qa .densi .col i{animation:none!important}
@@ -879,6 +889,8 @@ body.qa .densi .col i{animation:none!important}
     </div>
   </div>
 </footer>
+
+<a class="autrever" href="../reprise/">◇ Voir l'autre version</a>
 
 <span id="qahint"></span>
 <script>

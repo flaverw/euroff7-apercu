@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="robots" content="noindex, nofollow">
+<title>Euroff 7 — carte NFC (recto-verso, 85,6 × 54 mm)</title>
+<!--
+  Carte NFC / QR — adaptée du kit (carte-nfc/carte.html) à la DA « planche d'imprimeur ».
+  QR en local (qr.png, copié depuis assets/qr.png) — à régénérer vers le domaine propre après signature.
+  Impression : chaque face sort à 85,6 × 54 mm exactement (voir @media print).
+-->
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@600;700&family=Inter+Tight:wght@400;500&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<style>
+:root{--ink:#111;--paper:#F4F1EA;--c:#1B4DFF;--m:#FF2D55;--y:#FFC400}
+*{margin:0;padding:0;box-sizing:border-box}
+body{background:#4a4a4a;font-family:'Inter Tight',sans-serif;display:flex;flex-wrap:wrap;gap:26px;justify-content:center;align-items:center;min-height:100vh;padding:34px 34px 64px}
+.pr{display:contents}
+.card{width:648px;height:408px;overflow:hidden;position:relative;box-shadow:0 24px 60px rgba(0,0,0,.5)}
+.cmyk{display:flex;height:10px}.cmyk i{flex:1}.cmyk .ic{background:var(--c)}.cmyk .im{background:var(--m)}.cmyk .iy{background:var(--y)}.cmyk .ik{background:#000}
+/* RECTO */
+.recto{background:var(--ink);color:var(--paper)}
+.recto .inner{padding:38px 44px;height:calc(100% - 10px);display:flex;flex-direction:column;justify-content:space-between}
+.recto .top{display:flex;align-items:center;gap:18px}
+.recto .mk{width:74px;height:74px;background:var(--paper);color:var(--ink);display:grid;place-items:center;font-family:'Space Grotesk';font-weight:700;font-size:34px}
+.recto h1{font-family:'Space Grotesk';font-weight:700;font-size:34px;line-height:.95;letter-spacing:-1px}
+.recto h1 span{display:block;font-family:'IBM Plex Mono';font-size:13px;font-weight:400;letter-spacing:3px;color:var(--y);margin-top:6px}
+.recto .slo{font-family:'Space Grotesk';font-weight:600;font-size:22px;line-height:1.15}
+.recto .slo em{font-style:normal;background:var(--m);padding:0 6px}
+.recto .foot{display:flex;justify-content:space-between;align-items:flex-end;font-family:'IBM Plex Mono';font-size:14px}
+.recto .foot b{color:var(--y);font-weight:500}
+.recto .tap{border:1.5px solid var(--y);color:var(--y);padding:8px 15px;font-size:12px;letter-spacing:1px;text-transform:uppercase}
+/* VERSO */
+.verso{background:var(--paper);color:var(--ink)}
+.verso .inner{padding:34px 40px;height:calc(100% - 10px);display:flex;align-items:center;gap:34px}
+.verso .qr{width:200px;height:200px;background:#fff;border:1.5px solid var(--ink);padding:12px;flex:none}
+.verso .qr img{width:100%;height:100%;display:block;image-rendering:pixelated}
+.verso .rt h2{font-family:'Space Grotesk';font-weight:700;font-size:30px;line-height:1;letter-spacing:-.5px}
+.verso .rt p{font-family:'IBM Plex Mono';font-size:13px;color:#555;margin:10px 0 16px}
+.verso .rt .row{font-size:16px;margin:6px 0;display:flex;gap:11px;align-items:center}
+.verso .rt .row b{color:var(--m)}
+.verso .rt .row .pt{width:9px;height:9px;flex:none;border:1.5px solid var(--ink);background:var(--y)}
+.verso .rt .row:nth-child(4) .pt{background:var(--c)}
+.verso .rt .row:nth-child(5) .pt{background:var(--m)}
+.tagp{position:fixed;bottom:10px;left:0;right:0;text-align:center;color:#ccc;font-family:'IBM Plex Mono';font-size:12px;padding:0 16px}
+/* IMPRESSION — chaque face à 85,6 × 54 mm exactement */
+@media print{
+  @page{margin:12mm}
+  body{background:#fff;display:block;padding:0}
+  .tagp{display:none}
+  .pr{display:block;width:85.6mm;height:54mm;overflow:hidden;margin:0 auto 10mm;page-break-inside:avoid}
+  .pr .card{transform:scale(.4992);transform-origin:top left;box-shadow:none}
+}
+</style>
+</head>
+<body>
+  <!-- RECTO -->
+  <div class="pr">
+  <div class="card recto">
+    <div class="cmyk"><i class="ic"></i><i class="im"></i><i class="iy"></i><i class="ik"></i></div>
+    <div class="inner">
+      <div class="top">
+        <div class="mk">E7</div>
+        <h1>Euroff 7<span>COMMUNICATION</span></h1>
+      </div>
+      <div class="slo">On imprime la com des autres.<br><em>Voici enfin la nôtre.</em></div>
+      <div class="foot">
+        <div>82 rue Sainte-Anne · Hautmont<br><b>03 27 65 36 22</b></div>
+        <div class="tap">◗ Approchez</div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <!-- VERSO -->
+  <div class="pr">
+  <div class="card verso">
+    <div class="cmyk"><i class="ic"></i><i class="im"></i><i class="iy"></i><i class="ik"></i></div>
+    <div class="inner">
+      <div class="qr"><img src="qr.png" alt="QR code vers la page de démonstration Euroff 7"></div>
+      <div class="rt">
+        <h2>Votre devis,<br>en un tap.</h2>
+        <p>Approchez votre téléphone.</p>
+        <div class="row"><span class="pt"></span><span>Enseignes · signalétique</span></div>
+        <div class="row"><span class="pt"></span><span>Covering · vitrines</span></div>
+        <div class="row"><span class="pt"></span><span>Devis <b>en ligne</b></span></div>
+      </div>
+    </div>
+  </div>
+  </div>
+  <div class="tagp">Carte NFC / QR — recto-verso · 85,6 × 54 mm · démonstration Everywhere · QR à régénérer vers le domaine propre après signature</div>
+</body>
+</html>
