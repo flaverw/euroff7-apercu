@@ -1,348 +1,76 @@
-<!DOCTYPE html>
-<html lang="fr">
-<head>
-<meta charset="UTF-8">
+<!-- cadenas-everywhere -->
+<!DOCTYPE html><html lang="fr"><head><meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="robots" content="noindex, nofollow">
-<title>Euroff 7 Communication — Imprimerie & signalétique, Hautmont</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter+Tight:wght@400;500;600&family=IBM+Plex+Mono:wght@400;500&display=swap" rel="stylesheet">
+<title>Accès protégé — Everywhere</title>
 <style>
-:root{
-  --ink:#111111; --paper:#F4F1EA; --paper-d:#e9e4d7;
-  --c:#1B4DFF; --m:#FF2D55; --y:#FFC400; --teal:#00A88F; --grey:#8A8A8A;
-}
+:root{--noir:#14110f;--or:#c9a24b;--creme:#f3ecdd}
 *{margin:0;padding:0;box-sizing:border-box}
-html{scroll-behavior:smooth}
-body{font-family:'Inter Tight',system-ui,sans-serif;color:var(--ink);background:var(--paper);line-height:1.6;overflow-x:hidden}
-.grot{font-family:'Space Grotesk',sans-serif}
-.mono{font-family:'IBM Plex Mono',monospace}
-img{max-width:100%;display:block}
-a{color:inherit}
-
-/* halftone paper texture (statique) */
-body::before{content:"";position:fixed;inset:0;z-index:-1;pointer-events:none;opacity:.5;
-  background-image:radial-gradient(var(--ink) 0.6px,transparent 0.7px);background-size:7px 7px;opacity:.045}
-
-/* CMYK bar */
-.cmyk{display:flex;height:8px}
-.cmyk i{flex:1}.cmyk .ic{background:var(--c)}.cmyk .im{background:var(--m)}.cmyk .iy{background:var(--y)}.cmyk .ik{background:var(--ink)}
-
-/* crop marks */
-.crop{position:absolute;width:22px;height:22px;pointer-events:none;opacity:.5}
-.crop::before,.crop::after{content:"";position:absolute;background:var(--ink)}
-.crop::before{width:1px;height:22px}.crop::after{height:1px;width:22px}
-.crop.tl{top:12px;left:12px}.crop.tr{top:12px;right:12px}.crop.tr::before{right:0}.crop.tr::after{right:0}
-.crop.bl{bottom:12px;left:12px}.crop.bl::before{bottom:0}.crop.bl::after{bottom:0}
-.crop.br{bottom:12px;right:12px}.crop.br::before{right:0;bottom:0}.crop.br::after{right:0;bottom:0}
-
-/* topbar */
-.top{position:sticky;top:0;z-index:60;background:var(--paper);border-bottom:1.5px solid var(--ink)}
-.top .in{max-width:1180px;margin:0 auto;padding:12px 24px;display:flex;align-items:center;justify-content:space-between}
-.brand{display:flex;align-items:center;gap:12px}
-.brand .mk{width:42px;height:42px;background:var(--ink);color:var(--paper);display:grid;place-items:center;font-weight:700;font-size:19px;font-family:'Space Grotesk';letter-spacing:-1px}
-.brand b{font-family:'Space Grotesk';font-weight:700;font-size:18px;letter-spacing:-.5px;line-height:1}
-.brand span{display:block;font-size:9.5px;letter-spacing:2.5px;text-transform:uppercase;color:var(--grey);margin-top:2px}
-.top nav{display:flex;gap:24px;align-items:center;font-size:14px}
-.top nav a{text-decoration:none;color:var(--ink);font-weight:500}
-.top nav a:hover{color:var(--m)}
-.top .cta{background:var(--m);color:#fff;padding:10px 18px;font-weight:600;text-decoration:none;font-size:14px}
-.top nav .lnk{display:none}
-@media(min-width:900px){.top nav .lnk{display:inline}}
-
-/* hero */
-.hero{position:relative;padding:78px 24px 0;overflow:hidden}
-.hero .in{max-width:1180px;margin:0 auto;position:relative}
-.hero .kick{font-family:'IBM Plex Mono';font-size:12.5px;letter-spacing:2px;text-transform:uppercase;color:var(--grey);margin-bottom:22px}
-.hero .kick b{color:var(--m)}
-.hero h1{font-family:'Space Grotesk';font-weight:700;font-size:clamp(38px,7vw,86px);line-height:.98;letter-spacing:-2px;max-width:15ch}
-.hero h1 .hl{position:relative;white-space:nowrap}
-.hero h1 .hl::after{content:"";position:absolute;left:-2px;right:-2px;bottom:.08em;height:.16em;background:var(--y);z-index:-1}
-.hero .lead{font-size:clamp(17px,2vw,21px);color:#333;max-width:52ch;margin:26px 0 0}
-.hero .btns{margin:34px 0 40px;display:flex;gap:14px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:9px;text-decoration:none;font-weight:600;font-size:15px;padding:15px 26px;transition:transform .12s}
-.btn:active{transform:translateY(1px)}
-.btn-k{background:var(--ink);color:var(--paper)}
-.btn-o{background:transparent;color:var(--ink);border:1.5px solid var(--ink)}
-.hero .strip{display:flex;flex-wrap:wrap;gap:8px 26px;font-family:'IBM Plex Mono';font-size:12.5px;color:var(--grey);padding:16px 0;border-top:1px solid var(--ink);border-bottom:1px solid var(--ink)}
-.hero .strip b{color:var(--ink);font-weight:500}
-
-/* sections */
-section{padding:74px 24px}
-.wrap{max-width:1180px;margin:0 auto}
-.eyebrow{font-family:'IBM Plex Mono';font-size:12px;letter-spacing:2px;text-transform:uppercase;color:var(--m);margin-bottom:10px;display:flex;align-items:center;gap:10px}
-.eyebrow::before{content:"";width:26px;height:2px;background:var(--m)}
-.h2{font-family:'Space Grotesk';font-weight:700;font-size:clamp(30px,4.6vw,50px);line-height:1;letter-spacing:-1.2px}
-.sub{font-size:17px;color:#444;max-width:56ch;margin-top:14px}
-
-/* mur des réalisations */
-#mur{background:var(--ink);color:var(--paper)}
-#mur .eyebrow{color:var(--y)}#mur .eyebrow::before{background:var(--y)}
-#mur .sub{color:#c9c4b8}
-.grid-mur{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:2px;margin-top:38px;background:var(--paper);border:2px solid var(--paper)}
-.ep{position:relative;aspect-ratio:4/3;padding:20px;display:flex;flex-direction:column;justify-content:space-between;overflow:hidden;color:#fff}
-.ep.c{background:var(--c)}.ep.m{background:var(--m)}.ep.y{background:var(--y);color:var(--ink)}.ep.t{background:var(--teal)}.ep.k{background:#1b1b1b}.ep.g{background:#3a3a3a}
-.ep .num{font-family:'IBM Plex Mono';font-size:11.5px;opacity:.8;letter-spacing:1px}
-.ep .lbl{font-family:'Space Grotesk';font-weight:700;font-size:clamp(22px,2.4vw,30px);line-height:.98;letter-spacing:-.5px}
-.ep .cap{font-family:'IBM Plex Mono';font-size:11px;line-height:1.5;opacity:.9}
-.ep::after{content:"◹";position:absolute;top:12px;right:14px;font-size:14px;opacity:.6}
-.mur-note{font-family:'IBM Plex Mono';font-size:12px;color:#b9b4a8;margin-top:16px;text-align:center}
-
-/* savoir-faire */
-.grid-sf{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:0;margin-top:38px;border-top:1.5px solid var(--ink);border-left:1.5px solid var(--ink)}
-.sf{padding:24px;border-right:1.5px solid var(--ink);border-bottom:1.5px solid var(--ink)}
-.sf .n{font-family:'IBM Plex Mono';font-size:12px;color:var(--m)}
-.sf h3{font-family:'Space Grotesk';font-weight:600;font-size:19px;margin:8px 0 6px;letter-spacing:-.3px}
-.sf p{font-size:14px;color:#555}
-
-/* du fichier à la pose */
-#process{background:var(--paper-d)}
-.steps{display:grid;grid-template-columns:repeat(auto-fit,minmax(210px,1fr));gap:22px;margin-top:38px}
-.st{position:relative;padding-top:22px;border-top:2px solid var(--ink)}
-.st .no{font-family:'Space Grotesk';font-weight:700;font-size:40px;letter-spacing:-2px;line-height:1}
-.st .no b{color:var(--m)}
-.st h4{font-family:'Space Grotesk';font-weight:600;font-size:18px;margin:8px 0 6px}
-.st p{font-size:14px;color:#555}
-
-/* ancrage local */
-#local{position:relative}
-.local-wrap{display:grid;grid-template-columns:1fr;gap:30px;align-items:center}
-@media(min-width:820px){.local-wrap{grid-template-columns:1.1fr .9fr}}
-.local .big{font-family:'Space Grotesk';font-weight:700;font-size:clamp(60px,12vw,150px);line-height:.85;letter-spacing:-4px}
-.local .big small{display:block;font-size:clamp(15px,2vw,20px);letter-spacing:3px;font-family:'IBM Plex Mono';color:var(--m);font-weight:400;margin-bottom:6px}
-.local p{font-size:17px;color:#444;max-width:44ch}
-.pantone{background:#fff;border:1px solid var(--ink);padding:0;width:190px;box-shadow:6px 6px 0 var(--ink)}
-.pantone .chip{height:150px;background:var(--m)}
-.pantone .meta{padding:12px 14px;font-family:'IBM Plex Mono';font-size:12px}
-.pantone .meta b{display:block;font-size:14px;margin-bottom:2px}
-
-/* avis */
-#avis{background:var(--ink);color:var(--paper)}
-#avis .eyebrow{color:var(--y)}#avis .eyebrow::before{background:var(--y)}
-.avis-note{font-family:'IBM Plex Mono';font-size:12.5px;color:#b9b4a8;margin-top:6px}
-.avis{display:grid;grid-template-columns:repeat(auto-fit,minmax(250px,1fr));gap:20px;margin-top:30px}
-.av{border:1px solid #3a3a3a;padding:22px}
-.av .st{color:var(--y);letter-spacing:3px;font-size:16px;border:none;padding:0}
-.av .q{font-size:16px;line-height:1.55;margin:12px 0}
-.av .m{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--grey);text-transform:uppercase;letter-spacing:1px}
-.note-avis{font-family:'IBM Plex Mono';font-size:11.5px;color:#8a8578;margin-top:20px;text-align:center}
-
-/* devis */
-#devis{background:var(--paper-d)}
-.devis{max-width:760px;margin:36px auto 0;background:var(--paper);border:2px solid var(--ink);box-shadow:10px 10px 0 var(--ink)}
-.devis .head{background:var(--ink);color:var(--paper);padding:16px 24px;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:8px}
-.devis .head b{font-family:'Space Grotesk';font-weight:600;font-size:18px}
-.devis .head span{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--y)}
-.devis .body{padding:26px 24px}
-.devis .grid{display:grid;grid-template-columns:1fr 1fr;gap:16px}
-.devis .full{grid-column:1/-1}
-.devis label{display:block;font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--grey);margin-bottom:6px}
-.devis input,.devis select,.devis textarea{width:100%;padding:12px 13px;border:1.5px solid var(--ink);background:#fff;font-family:inherit;font-size:15px;color:var(--ink)}
-.devis textarea{resize:vertical;min-height:74px}
-.devis input:focus,.devis select:focus,.devis textarea:focus{outline:none;border-color:var(--m)}
-.file{border:1.5px dashed var(--ink)!important;background:#fff;padding:16px!important;text-align:center;font-family:'IBM Plex Mono';font-size:12.5px;color:var(--grey);cursor:pointer}
-.devis .go{width:100%;margin-top:4px;background:var(--m);color:#fff;border:none;padding:16px;font-family:'Space Grotesk';font-weight:600;font-size:17px;cursor:pointer}
-.devis .go:hover{background:#e02348}
-.demo-note{font-family:'IBM Plex Mono';font-size:11.5px;color:var(--grey);text-align:center;margin-top:12px}
-
-/* contact */
-.contact{display:grid;grid-template-columns:1fr;gap:26px;margin-top:36px}
-@media(min-width:760px){.contact{grid-template-columns:repeat(3,1fr)}}
-.ct{border-top:2px solid var(--ink);padding-top:16px}
-.ct .n{font-family:'IBM Plex Mono';font-size:11px;letter-spacing:1px;text-transform:uppercase;color:var(--m)}
-.ct h4{font-family:'Space Grotesk';font-weight:600;font-size:17px;margin:6px 0}
-.ct p{font-size:15px;color:#444}
-.ct a{color:var(--ink);font-weight:500;text-decoration:none;border-bottom:2px solid var(--y)}
-
-/* footer */
-.foot{background:var(--ink);color:#b9b4a8;padding:0}
-.foot .in{max-width:1180px;margin:0 auto;padding:34px 24px;display:flex;flex-wrap:wrap;gap:16px;justify-content:space-between;align-items:center;font-family:'IBM Plex Mono';font-size:12px}
-.foot b{color:var(--paper)}
-
-@media(max-width:640px){
-  section{padding:54px 20px}
-  .hero{padding:54px 20px 0}
-  .devis .grid{grid-template-columns:1fr}
-  .devis{box-shadow:6px 6px 0 var(--ink)}
-}
-</style>
-</head>
+body{font-family:-apple-system,BlinkMacSystemFont,'Segoe UI',Roboto,sans-serif;min-height:100vh;
+ background:radial-gradient(120% 120% at 50% 0%,#241f1a,var(--noir));color:var(--creme);
+ display:flex;align-items:center;justify-content:center;padding:24px}
+.card{max-width:420px;width:100%;text-align:center}
+.mark{font-size:11px;letter-spacing:.34em;text-transform:uppercase;color:var(--or);margin-bottom:18px}
+.lock{font-size:40px;margin-bottom:14px}
+h1{font-size:22px;font-weight:600;line-height:1.25;margin-bottom:8px}
+p.sub{font-size:14px;color:#b9b0a0;margin-bottom:22px;line-height:1.5}
+form{display:flex;gap:8px;flex-direction:column}
+input{width:100%;background:#1c1814;border:1px solid rgba(201,162,75,.4);color:var(--creme);
+ padding:14px 16px;font-size:16px;border-radius:8px;text-align:center;letter-spacing:.05em}
+input:focus{outline:none;border-color:var(--or)}
+button{background:var(--or);color:var(--noir);border:none;padding:14px;font-size:15px;font-weight:600;
+ border-radius:8px;cursor:pointer;letter-spacing:.03em}
+button:hover{filter:brightness(1.08)}
+.err{color:#e6857a;font-size:13px;min-height:18px;margin-top:4px}
+.foot{margin-top:26px;font-size:11px;color:#7c7364;line-height:1.5}
+</style></head>
 <body>
-
-<div class="cmyk"><i class="ic"></i><i class="im"></i><i class="iy"></i><i class="ik"></i></div>
-
-<header class="top">
-  <div class="in">
-    <div class="brand">
-      <div class="mk">E7</div>
-      <div><b>EUROFF 7</b><span>Communication · Hautmont</span></div>
-    </div>
-    <nav>
-      <a class="lnk" href="#mur">Réalisations</a>
-      <a class="lnk" href="#savoirfaire">Savoir-faire</a>
-      <a class="lnk" href="#local">L'atelier</a>
-      <a class="cta" href="#devis">Demander un devis</a>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero">
-  <span class="crop tl"></span><span class="crop tr"></span>
-  <div class="in">
-    <div class="kick">Imprimerie · Signalétique · Covering — <b>à Hautmont depuis 2005</b></div>
-    <h1 class="grot">On imprime la communication des autres. <span class="hl">Voici enfin la nôtre.</span></h1>
-    <p class="lead">Enseignes, habillage de véhicules, banderoles, vitrines, panneaux — conçus, imprimés et posés dans l'atelier, pour toute la Sambre-Avesnois.</p>
-    <div class="btns">
-      <a class="btn btn-k" href="#devis">Demander un devis →</a>
-      <a class="btn btn-o" href="#mur">Voir nos réalisations</a>
-    </div>
-    <div class="strip">
-      <span>OFFSET · <b>NUMÉRIQUE</b></span>
-      <span>GRANDS <b>FORMATS</b></span>
-      <span>POSE <b>TOUS SUPPORTS</b></span>
-      <span>ATELIER <b>59330 HAUTMONT</b></span>
-    </div>
-  </div>
-</section>
-
-<!-- MUR DES RÉALISATIONS -->
-<section id="mur">
-  <div class="wrap">
-    <div class="eyebrow">Le mur · nos épreuves</div>
-    <h2 class="h2">Ce qu'on fabrique</h2>
-    <p class="sub">Notre meilleur argument, ce sont nos réalisations. Voici comment elles s'afficheront — chaque projet, une épreuve qu'on peut agrandir.</p>
-    <div class="grid-mur">
-      <div class="ep c"><div class="num">EP·01</div><div><div class="lbl">Enseigne</div><div class="cap">enseigne lumineuse · Dibond<br>façade commerce · Hautmont</div></div></div>
-      <div class="ep m"><div class="num">EP·02</div><div><div class="lbl">Covering<br>véhicule</div><div class="cap">total covering · vinyle coulé<br>utilitaire · Sambre-Avesnois</div></div></div>
-      <div class="ep y"><div class="num">EP·03</div><div><div class="lbl">Banderole</div><div class="cap">bâche PVC · œillets<br>événement · grand format</div></div></div>
-      <div class="ep t"><div class="num">EP·04</div><div><div class="lbl">Vitrine</div><div class="cap">habillage adhésif · dépoli<br>devanture · pose sur site</div></div></div>
-      <div class="ep k"><div class="num">EP·05</div><div><div class="lbl">Signalétique</div><div class="cap">totem &amp; plaques · PVC<br>intérieur / extérieur</div></div></div>
-      <div class="ep g"><div class="num">EP·06</div><div><div class="lbl">Panneau</div><div class="cap">panneau chantier · Akilux<br>impression numérique</div></div></div>
-    </div>
-    <p class="mur-note">◹ Aperçu de mise en page — vos vraies photos de réalisations prendront exactement cette place.</p>
-  </div>
-</section>
-
-<!-- SAVOIR-FAIRE -->
-<section id="savoirfaire">
-  <div class="wrap">
-    <div class="eyebrow">Nos savoir-faire</div>
-    <h2 class="h2">De l'idée au support posé</h2>
-    <div class="grid-sf">
-      <div class="sf"><div class="n">01</div><h3>Impression offset &amp; numérique</h3><p>Petits et grands volumes — cartes, flyers, affiches, dépliants.</p></div>
-      <div class="sf"><div class="n">02</div><h3>Enseignes</h3><p>Enseignes de façade, lettres, caissons — conception et pose.</p></div>
-      <div class="sf"><div class="n">03</div><h3>Signalétique</h3><p>Totems, plaques, fléchage, signalétique intérieure et extérieure.</p></div>
-      <div class="sf"><div class="n">04</div><h3>Covering véhicules</h3><p>Marquage partiel ou total covering sur voiture et utilitaire.</p></div>
-      <div class="sf"><div class="n">05</div><h3>Habillage de vitrines</h3><p>Adhésifs, dépoli, vitrophanie — la devanture qui parle.</p></div>
-      <div class="sf"><div class="n">06</div><h3>Banderoles &amp; kakémonos</h3><p>Bâches, roll-up, kakémonos — pour vos événements.</p></div>
-      <div class="sf"><div class="n">07</div><h3>Panneaux</h3><p>Panneaux chantier, immobilier, PLV — tous supports rigides.</p></div>
-      <div class="sf"><div class="n">08</div><h3>Pose sur site</h3><p>On ne fait pas que produire : on installe, proprement.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- DU FICHIER À LA POSE -->
-<section id="process">
-  <div class="wrap">
-    <div class="eyebrow">Comment on travaille</div>
-    <h2 class="h2">Du fichier à la pose</h2>
-    <div class="steps">
-      <div class="st"><div class="no"><b>0</b>1</div><h4>Le calage</h4><p>On part de votre fichier (ou on le crée), on cale couleurs et formats.</p></div>
-      <div class="st"><div class="no"><b>0</b>2</div><h4>L'épreuve</h4><p>On vous soumet un bon à tirer : ce que vous validez, c'est ce qui sort.</p></div>
-      <div class="st"><div class="no"><b>0</b>3</div><h4>Le tirage</h4><p>Impression offset ou numérique, à l'atelier, sur le bon support.</p></div>
-      <div class="st"><div class="no"><b>0</b>4</div><h4>La pose</h4><p>Enseigne, covering, vitrine : on installe sur place, dans la Sambre-Avesnois.</p></div>
-    </div>
-  </div>
-</section>
-
-<!-- ANCRAGE LOCAL -->
-<section id="local">
-  <span class="crop bl"></span>
-  <div class="wrap local-wrap">
-    <div class="local">
-      <div class="eyebrow">L'atelier</div>
-      <div class="big"><small>DEPUIS</small>2005</div>
-      <p style="margin-top:20px">Un atelier à Hautmont, rue Sainte-Anne. Vingt ans à habiller les commerces, les entreprises et les véhicules de la Sambre-Avesnois — de l'enseigne au covering.</p>
-    </div>
-    <div style="display:flex;justify-content:center">
-      <div class="pantone">
-        <div class="chip"></div>
-        <div class="meta"><b>EUROFF 7</b>Hautmont · 59330<br>C · M · Y · K</div>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- AVIS -->
-<section id="avis">
-  <div class="wrap">
-    <div class="eyebrow">Ce qu'on dit de l'atelier</div>
-    <h2 class="h2">5,0/5</h2>
-    <p class="avis-note">Sur les avis publiés à ce jour (moins de dix) — d'où l'intérêt d'en rassembler davantage, et de les afficher ici, en direct.</p>
-    <div class="avis">
-      <div class="av"><div class="st">★★★★★</div><p class="q">« Travail soigné et bon conseil sur le support. On a été suivis du fichier jusqu'à la pose. »</p><p class="m">— un commerçant du secteur</p></div>
-      <div class="av"><div class="st">★★★★★</div><p class="q">« Réactifs et à l'écoute pour notre covering. Le rendu est nickel. »</p><p class="m">— une entreprise locale</p></div>
-      <div class="av"><div class="st">★★★★★</div><p class="q">« Un vrai savoir-faire de proximité, on recommande pour la signalétique. »</p><p class="m">— un client de Hautmont</p></div>
-    </div>
-    <p class="note-avis">Extraits représentatifs. Sur le site final, vos <b style="color:#f4f1ea">vrais avis Google</b> s'afficheront ici, à jour.</p>
-  </div>
-</section>
-
-<!-- DEVIS -->
-<section id="devis">
-  <div class="wrap">
-    <div class="eyebrow">Un projet en tête ?</div>
-    <h2 class="h2">Demander un devis</h2>
-    <p class="sub">Dites-nous le support, le format et la quantité — joignez votre fichier si vous l'avez. On revient vers vous pour affiner et chiffrer.</p>
-    <form class="devis" onsubmit="return false;">
-      <div class="head"><b>Votre demande de devis</b><span>EUROFF 7 · FICHE DE FABRICATION</span></div>
-      <div class="body">
-        <div class="grid">
-          <div class="full">
-            <label>Type de support</label>
-            <select><option>Enseigne</option><option>Signalétique / totem</option><option>Covering véhicule</option><option>Banderole / kakémono</option><option>Panneau (chantier, immobilier, PLV)</option><option>Impression (cartes, flyers, affiches)</option><option>Habillage de vitrine</option><option>Autre / je ne sais pas encore</option></select>
-          </div>
-          <div><label>Format / dimensions</label><input type="text" placeholder="ex. 2000 × 800 mm"></div>
-          <div><label>Quantité</label><input type="number" min="1" value="1"></div>
-          <div class="full">
-            <label>Votre fichier (optionnel)</label>
-            <div class="file">＋ Déposer un fichier — PDF, AI, JPG, PNG (démo)</div>
-          </div>
-          <div><label>Délai souhaité</label><select><option>Dès que possible</option><option>Sous 1 semaine</option><option>Sous 2 semaines</option><option>Pas pressé</option></select></div>
-          <div><label>Téléphone</label><input type="tel" placeholder="03 …"></div>
-          <div class="full"><label>Précisions</label><textarea placeholder="Décrivez votre projet en quelques mots…"></textarea></div>
-          <div><label>Nom / société</label><input type="text" placeholder="Votre nom"></div>
-          <div><label>Email</label><input type="email" placeholder="vous@exemple.fr"></div>
-        </div>
-        <button class="go" type="submit">Envoyer ma demande →</button>
-        <p class="demo-note">Maquette de démonstration — le formulaire n'envoie encore rien. Sur le site final, la demande (et le fichier) arrivent directement à l'atelier.</p>
-      </div>
-    </form>
-  </div>
-</section>
-
-<!-- CONTACT -->
-<section id="contact">
-  <div class="wrap">
-    <div class="eyebrow">Nous trouver</div>
-    <h2 class="h2">L'atelier</h2>
-    <div class="contact">
-      <div class="ct"><div class="n">Adresse</div><h4>82 rue Sainte-Anne</h4><p>59330 Hautmont<br>Sambre-Avesnois</p></div>
-      <div class="ct"><div class="n">Horaires</div><h4>Lun — Jeu · 8h30-18h</h4><p>Vendredi · 8h30-17h<br>Week-end fermé</p></div>
-      <div class="ct"><div class="n">Contact</div><h4><a href="tel:+33327653622">03 27 65 36 22</a></h4><p>Devis &amp; conseil<br>sur rendez-vous</p></div>
-    </div>
-  </div>
-</section>
-
-<footer class="foot">
-  <div class="cmyk"><i class="ic"></i><i class="im"></i><i class="iy"></i><i class="ik"></i></div>
-  <div class="in">
-    <div><b>EUROFF 7 COMMUNICATION</b> — SARL · Imprimerie &amp; signalétique · Hautmont (59)</div>
-    <div>Maquette de présentation · Everywhere · contenu &amp; visuels à valider</div>
-  </div>
-</footer>
-
-</body>
-</html>
+<div class="card">
+  <div class="mark">Everywhere</div>
+  <div class="lock">&#128274;</div>
+  <h1>Accès protégé</h1>
+  <p class="sub">Cette démonstration est réservée. Saisissez votre code d'accès pour la consulter.</p>
+  <form id="f"><input id="pw" type="password" placeholder="Code d'accès" autocomplete="off" autofocus>
+  <button type="submit">Entrer</button></form>
+  <div class="err" id="e"></div>
+  <div class="foot">Everywhere — cabinet d'accompagnement numérique.<br>Contenu chiffré. Un code par visiteur, communiqué par Everywhere.</div>
+</div>
+<script>
+(function(){
+ var D={"v":1,"iters":210000,"iv":"Qf0uFveqQNZDR20E","ct":"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","wraps":[{"role":"client","salt":"OURaZ9kdnwgqG54tkTuCZw==","iv":"m3UQRPH4DEG4BgmF","wrapped":"I50EPrVZcDlVrWj+X/yJCWPT+OwpArYU++EPyJ3h67153gCh49G1x6UvxUg+oKRE"}]};
+ var dec=function(s){var b=atob(s),u=new Uint8Array(b.length);for(var i=0;i<b.length;i++)u[i]=b.charCodeAt(i);return u;};
+ var enc=new TextEncoder();
+ async function derive(pw,salt){
+  var km=await crypto.subtle.importKey('raw',enc.encode(pw),'PBKDF2',false,['deriveKey']);
+  return crypto.subtle.deriveKey({name:'PBKDF2',salt:salt,iterations:D.iters,hash:'SHA-256'},km,{name:'AES-GCM',length:256},false,['decrypt']);
+ }
+ async function tryUnlock(pw){
+  for(var i=0;i<D.wraps.length;i++){
+   var w=D.wraps[i];
+   try{
+    var wk=await derive(pw,dec(w.salt));
+    var ckRaw=new Uint8Array(await crypto.subtle.decrypt({name:'AES-GCM',iv:dec(w.iv)},wk,dec(w.wrapped)));
+    var ck=await crypto.subtle.importKey('raw',ckRaw,'AES-GCM',false,['decrypt']);
+    var html=new TextDecoder().decode(await crypto.subtle.decrypt({name:'AES-GCM',iv:dec(D.iv)},ck,dec(D.ct)));
+    return {ok:true,role:w.role,html:html};
+   }catch(e){}
+  }
+  return {ok:false};
+ }
+ function render(html){document.open();document.write(html);document.close();}
+ async function boot(){
+  var pw=null;try{pw=sessionStorage.getItem('ew_pass');}catch(e){}
+  if(pw){var r=await tryUnlock(pw);if(r.ok){render(r.html);return;}}
+  document.getElementById('f').addEventListener('submit',async function(ev){
+   ev.preventDefault();
+   var v=document.getElementById('pw').value;
+   document.getElementById('e').textContent='';
+   var r=await tryUnlock(v);
+   if(r.ok){try{sessionStorage.setItem('ew_pass',v);}catch(e){}render(r.html);}
+   else{document.getElementById('e').textContent='Code incorrect.';document.getElementById('pw').select();}
+  });
+ }
+ if(!crypto||!crypto.subtle){document.getElementById('e').textContent='Navigateur non compatible.';}else{boot();}
+})();
+</script>
+</body></html>
